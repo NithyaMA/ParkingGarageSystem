@@ -164,8 +164,8 @@
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_PCuB4Hk1EeWvqaNv4is7OA" name="Status">
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_SVZTkHk1EeWvqaNv4is7OA" name="FULL"/>
-      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_S0dOIHk1EeWvqaNv4is7OA" name="AVAILABLE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_SVZTkHk1EeWvqaNv4is7OA" name="full"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_S0dOIHk1EeWvqaNv4is7OA" name="available"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KVCm4HjqEeWvqaNv4is7OA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KVt8UHjqEeWvqaNv4is7OA" source="http://www.eclipse.org/uml2/2.0.0/UML">

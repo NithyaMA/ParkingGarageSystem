@@ -420,7 +420,7 @@
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_ZjNakXk0EeWvqaNv4is7OA"/>
     <element xmi:type="uml:Association" href="designClassDiagram.uml#_ZjK-UHk0EeWvqaNv4is7OA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZjNaknk0EeWvqaNv4is7OA" points="[0, 0, -692, 68]$[0, 143, -692, 211]$[21, 143, -671, 211]$[711, 149, 19, 217]$[692, -68, 0, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZjNaknk0EeWvqaNv4is7OA" points="[0, 0, -692, 84]$[0, 139, -692, 223]$[21, 135, -671, 219]$[692, 135, 0, 219]$[692, -84, 0, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZjtJ0Hk0EeWvqaNv4is7OA" id="(0.4838012958963283,1.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Zjtw4Hk0EeWvqaNv4is7OA" id="(0.5920398009950248,1.0)"/>
   </edges>
