@@ -1,6 +1,6 @@
 package cs414.a4.nithya;
 
-public enum Status {
+public enum GarageStatus {
 
 	full,
 	available
