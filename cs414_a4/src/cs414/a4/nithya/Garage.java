@@ -33,12 +33,9 @@ public class Garage {
 	{
 		return exitKiosk.acceptTicket(ticket);
 	}
-	public void payParkingFee(Ticket ticket,Float amount)
+	public void payParkingFee(int choiceOfParking)
 	{
-		if(ticket.makePayment(amount))
-		{
-			exitKiosk.openExitGate();
-		}
+		
 	}
 	
 	public void generateReport(int choiceKey)
