@@ -5,7 +5,7 @@ public class Garage {
 	private String name;
 	private GarageStatus garageStatus;
 	private int totalOccupiedSpaces;
-	private int[] availableParkingLots;
+	private int[] parkingLots;
 	private EntryKiosk entryKiosk;
 	private ExitKiosk exitKiosk;
 	private Register register;
@@ -16,7 +16,7 @@ public class Garage {
 
 		for(int i=1; i<= numberOfParkingLots; i++)
 		{
-			availableParkingLots[i]=i;
+			this.parkingLots[i]=i;
 		}
 		this.totalOccupiedSpaces=0;
 		this.garageStatus= GarageStatus.available;
@@ -24,16 +24,39 @@ public class Garage {
 		this.exitKiosk=exitKiosk;
 		this.register=register;
 	}
-	public void enterGarage(Customer customer)
-	{
+	public Ticket enterGarage(Customer customer)
+
+	{	
+		if(garageStatus.equals(GarageStatus.available))
+		{
+		int assignedParkingLot=0;
+		int totalLots= parkingLots.length;
+		for(int i=1; i<=totalLots ; i++)
+		{
+			if(parkingLots[i]==i)
+			{ 
+				assignedParkingLot= i;
+				break;	
+			}
+			
+		}
 		
+		Ticket generatedTicket= this.entryKiosk.generateTicketandOpenGate(customer, assignedParkingLot);
+		
+		return generatedTicket;
+		}
+		else
+			throw new CustomException("The garage is full");
+			
 	}
 	
 	public float provideTicketForExitingGarage(Ticket ticket)
 	{
-		return exitKiosk.acceptTicket(ticket);
+		float amountToBePaid=  exitKiosk.acceptTicket(ticket);
+		return amountToBePaid;
 	}
-	public void payParkingFee(int choiceOfParking)
+	
+	public void payParkingFee()
 	{
 		
 	}
@@ -48,15 +71,15 @@ public class Garage {
 		garageStatus=status;
 	}
 	
-	public void activateSensor(String gate)
+	
+	public class CustomException extends RuntimeException
 	{
-		if (gate.equals("entry"))
+		
+		private static final long serialVersionUID = 1L;
+		
+		public CustomException(String message)
 		{
-			entryKiosk.closeEntryGate();
-		}
-		else if(gate.equals("exit"))
-		{
-			exitKiosk.closeExitGate();
+			super(message);
 		}
 	}
 }

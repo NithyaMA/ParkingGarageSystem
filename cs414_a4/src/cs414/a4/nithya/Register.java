@@ -1,10 +1,12 @@
 package cs414.a4.nithya;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Register {
 
-	private Ticket[] generatedTickets;
+	private Set <Ticket> tickets= new HashSet<Ticket>();
 	
 	public void addTicketToGeneratedTickets()
 	{
@@ -31,4 +33,8 @@ public class Register {
 	{
 		
 	}
+	public Set<Ticket> getTickets() {
+		return tickets;
+	}
+	
 }
