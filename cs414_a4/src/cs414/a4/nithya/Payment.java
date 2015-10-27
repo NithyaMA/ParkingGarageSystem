@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Payment {
 	
+	private Ticket ticket;
+	
 	public float makePaymentByCash(float parkingFee,float amount)
 	{
 		if (parkingFee==amount)
@@ -14,7 +16,7 @@ public class Payment {
 			return (amount- parkingFee);
 		}
 		else
-			return -1;
+			throw new CustomException("Cash provided is less than the parking fee. Transaction is cancelled");
 	}
 	public boolean makePaymentByCard(long cardNumber, Date expiryDate)
 	{
@@ -25,9 +27,12 @@ public class Payment {
 		/**reference for the method isValid: http://www.mathcs.emory.edu/~lxiong/cs170/share/labs/lab5/CreditCard.java, 
 			Luhn's algorithm for credit card validation */
 		
-		isValid(cardNumber);
+	      if(isValid(cardNumber))
+	    	  return hasRequiredBalance(cardNumber);
+	      else
+	    	  throw new CustomException("The card number is not valid. Transaction is cancelled");
 		}
-		return false;
+		throw new CustomException("The validity of the card is expired. Transaction is cancelled");
 	}
 
 
@@ -122,5 +127,24 @@ public  int sumOfOddPlaces(long number) {
 	}
 
 	return sumOfDigits;
+}
+
+/* a method which pretends to check the balance of the card. It is assumed that, the card has the required balance for the transaction
+and hence it returns true.*/
+
+public boolean hasRequiredBalance(long cardNumber)
+{
+	return true;
+}
+
+public class CustomException extends RuntimeException
+{
+	
+	private static final long serialVersionUID = 1L;
+	
+	public CustomException(String message)
+	{
+		super(message);
+	}
 }
 }

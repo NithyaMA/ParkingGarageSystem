@@ -26,8 +26,10 @@ public class Ticket {
 	}
 	
 
-	public float calculateTotalParkingFee() {
-		return (float) 0.0;
+	public void calculateTotalParkingFee() {
+		
+		this.parkingRate=(float) 0.0;
+		
 	}
 
 
@@ -101,6 +103,11 @@ public class Ticket {
 
 	public Customer getCustomer() {
 		return customer;
+	}
+
+
+	public float getTotalParkingFee() {
+		return totalParkingFee;
 	}
 	
 	

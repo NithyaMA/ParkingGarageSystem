@@ -4,6 +4,7 @@ public class ExitKiosk {
 	private String kioskNumber;
 	private boolean exitGate;
 	private Register register;
+
 	
 	
 	public ExitKiosk(String number, Register register)
@@ -13,10 +14,11 @@ public class ExitKiosk {
 		this.register= register;
 		
 	}
-	public float acceptTicket(int ticketReferenceNumber, String liscenceNumber)
+	public Ticket validateTicket(int ticketReferenceNumber, String liscenceNumber)
 	{	
 		boolean flag=false;
-		float totalParkingFee=(float) 0.0;
+		Ticket submittedTicket=null;
+		
 		for(Ticket ticket: register.getTickets())
 		{
 			if(ticket.getTicketReferenceNumber()==ticketReferenceNumber)
@@ -24,7 +26,9 @@ public class ExitKiosk {
 				flag=true;
 				if(ticket.getCustomer().getLiscenceNumber().equals(liscenceNumber))
 				{
-				totalParkingFee=ticket.calculateTotalParkingFee();
+				ticket.calculateTotalParkingFee();
+				submittedTicket=ticket;
+				
 				break;
 				}
 				else 
@@ -37,7 +41,9 @@ public class ExitKiosk {
 		
 	  
 		}
-		return totalParkingFee;
+		if (register.getTickets().isEmpty())
+			throw new CustomException("This vehicle is illegaly parked inside");
+		return submittedTicket;
 		
 	}
 	
@@ -61,6 +67,11 @@ public class ExitKiosk {
 			{
 				super(message);
 			}
+		}
+
+
+		public boolean isExitGate() {
+			return exitGate;
 		}
 	
 	

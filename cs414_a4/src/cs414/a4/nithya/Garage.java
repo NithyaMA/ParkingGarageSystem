@@ -1,5 +1,6 @@
 package cs414.a4.nithya;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ public class Garage {
 	private EntryKiosk entryKiosk;
 	private ExitKiosk exitKiosk;
 	private Register register;
+	
 	
 	public Garage(String name, int numberOfParkingLots, EntryKiosk entryKiosk, ExitKiosk exitKiosk, Register register)
 	{
@@ -58,15 +60,30 @@ public class Garage {
 	
 	
 	
-	public float provideTicketForExitingGarage(int ticketReferenceNumber, String liscenceNumber)
+	public Ticket validateTicketForExitingGarage(int ticketReferenceNumber, String liscenceNumber)
 	{
-		return exitKiosk.acceptTicket(ticketReferenceNumber,  liscenceNumber);
+		return exitKiosk.validateTicket(ticketReferenceNumber,  liscenceNumber);
 	
 	}
 	
-	public void payParkingFee()
+	public float payParkingFeeByCash( Ticket ticket, float amount)
 	{
+		Payment payment= new Payment();
+		float balanceDue=payment.makePaymentByCash(ticket.getTotalParkingFee(), amount);
+		exitKiosk.openExitGate();
+		return balanceDue;
+	}
+	
+	public boolean payParkingFeeByCard(Ticket ticket, Long cardNumber, Date expiryDate)
+	{
+		Payment payment= new Payment();
+		if(payment.makePaymentByCard(cardNumber, expiryDate))
+		{
+			exitKiosk.openExitGate();
+			return true;
+		}
 		
+		 return false;
 	}
 	
 	public void generateReport(int choiceKey)
