@@ -1,14 +1,14 @@
 package cs414.a4.nithya;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Ticket {
 	private static int ticketNumber=0;
 	private int ticketReferenceNumber;
 	private int assignedParkingLot;
 	private Customer customer;
-	private Date timeOfEntry;
-	private Date timeOfExit;
+	private Calendar timeOfEntry;
+	private Calendar timeOfExit;
 	private float parkingRate;
 	private TicketStatus ticketStatus;
 	private float totalParkingFee;
@@ -21,6 +21,8 @@ public class Ticket {
 		this.parkingRate=10;
 		ticketNumber+=1;
 		this.ticketReferenceNumber=ticketNumber;
+		 Calendar cal = Calendar.getInstance();
+		this.timeOfEntry=cal;
 		
 		
 	}
@@ -28,27 +30,33 @@ public class Ticket {
 
 	public void calculateTotalParkingFee() {
 		
-		this.parkingRate=(float) 0.0;
+		long timeDiffInMs= timeOfExit.getTimeInMillis()  -   timeOfEntry.getTimeInMillis();
+		System.out.println(timeDiffInMs);
+		 float timeDiffInHours =(float) timeDiffInMs/(float)(1000*60*60);
+		 System.out.println(timeDiffInHours);
+		 System.out.println(parkingRate);
+		this.totalParkingFee= (timeDiffInHours * parkingRate);
+		
 		
 	}
 
 
-	public Date getTimeOfEntry() {
+	public Calendar getTimeOfEntry() {
 		return timeOfEntry;
 	}
 
 
-	public void setTimeOfEntry(Date timeOfEntry) {
+	public void setTimeOfEntry(Calendar timeOfEntry) {
 		this.timeOfEntry = timeOfEntry;
 	}
 
 
-	public Date getTimeOfExit() {
+	public Calendar getTimeOfExit() {
 		return timeOfExit;
 	}
 
 
-	public void setTimeOfExit(Date timeOfExit) {
+	public void setTimeOfExit(Calendar timeOfExit) {
 		this.timeOfExit = timeOfExit;
 	}
 

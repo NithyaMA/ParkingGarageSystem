@@ -9,6 +9,7 @@ public class Garage {
 	private String name;
 	private GarageStatus garageStatus;
 	private int totalOccupiedSpaces;
+	private int totalUnoccupiedSpaces;
 	private Map <Integer, String>parkingLots= new HashMap<Integer, String>();
 	
 	private EntryKiosk entryKiosk;
@@ -25,6 +26,7 @@ public class Garage {
 			parkingLots.put(i, "empty");
 		}
 		this.totalOccupiedSpaces=0;
+        this.totalUnoccupiedSpaces=numberOfParkingLots;
 		this.garageStatus= GarageStatus.available;
 		this.entryKiosk=entryKiosk;
 		this.exitKiosk=exitKiosk;
@@ -43,6 +45,9 @@ public class Garage {
 			{ 
 				assignedParkingLot= key;
 				parkingLots.put(key, "full");
+				totalOccupiedSpaces+=1;
+				totalUnoccupiedSpaces-=1;
+				updateStatus();
 				break;	
 			}
 			
@@ -70,6 +75,10 @@ public class Garage {
 	{
 		Payment payment= new Payment();
 		float balanceDue=payment.makePaymentByCash(ticket.getTotalParkingFee(), amount);
+		ticket.setTicketStatus(TicketStatus.paid);
+		totalOccupiedSpaces-=1;
+		totalUnoccupiedSpaces+=1;
+		updateStatus();
 		exitKiosk.openExitGate();
 		return balanceDue;
 	}
@@ -91,9 +100,12 @@ public class Garage {
 		
 	}
 	
-	public void updateStatus(GarageStatus status)
+	public void updateStatus()
 	{
-		garageStatus=status;
+		if(parkingLots.containsValue("empty"))
+		this.garageStatus= GarageStatus.available;
+		else
+			this.garageStatus= GarageStatus.full;
 	}
 	
 	public void activateSensor(String choiceOfGate)
@@ -121,5 +133,14 @@ public class Garage {
 
 	public String getName() {
 		return name;
+	}
+	public GarageStatus getGarageStatus() {
+		return garageStatus;
+	}
+	public int getTotalOccupiedSpaces() {
+		return totalOccupiedSpaces;
+	}
+	public int getTotalUnoccupiedSpaces() {
+		return totalUnoccupiedSpaces;
 	}
 }

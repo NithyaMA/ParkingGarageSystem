@@ -1,5 +1,7 @@
 package cs414.a4.nithya;
 
+import java.util.Calendar;
+
 public class ExitKiosk {
 	private String kioskNumber;
 	private boolean exitGate;
@@ -26,8 +28,10 @@ public class ExitKiosk {
 				flag=true;
 				if(ticket.getCustomer().getLiscenceNumber().equals(liscenceNumber))
 				{
-				ticket.calculateTotalParkingFee();
-				submittedTicket=ticket;
+					 Calendar cal = Calendar.getInstance();
+					ticket.setTimeOfExit(cal);
+					ticket.calculateTotalParkingFee();
+					submittedTicket=ticket;
 				
 				break;
 				}
@@ -42,7 +46,7 @@ public class ExitKiosk {
 	  
 		}
 		if (register.getTickets().isEmpty())
-			throw new CustomException("This vehicle is illegaly parked inside");
+			throw new CustomException("There are no vehicles parked inside the garage. Sorry, you have come to the wrong garage.");
 		return submittedTicket;
 		
 	}
