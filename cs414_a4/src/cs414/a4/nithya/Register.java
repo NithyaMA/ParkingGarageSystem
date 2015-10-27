@@ -8,9 +8,9 @@ public class Register {
 
 	private Set <Ticket> tickets= new HashSet<Ticket>();
 	
-	public void addTicketToGeneratedTickets()
+	public void addTicketToGeneratedTickets(Ticket ticket)
 	{
-		
+		tickets.add(ticket);
 	}
 	public void generateHourlyReport(Date date)
 	{

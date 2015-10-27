@@ -1,11 +1,15 @@
 package cs414.a4.nithya;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Garage {
 	
 	private String name;
 	private GarageStatus garageStatus;
 	private int totalOccupiedSpaces;
-	private int[] parkingLots;
+	private Map <Integer, String>parkingLots= new HashMap<Integer, String>();
+	
 	private EntryKiosk entryKiosk;
 	private ExitKiosk exitKiosk;
 	private Register register;
@@ -13,10 +17,10 @@ public class Garage {
 	public Garage(String name, int numberOfParkingLots, EntryKiosk entryKiosk, ExitKiosk exitKiosk, Register register)
 	{
 		this.name=name;
-
+	
 		for(int i=1; i<= numberOfParkingLots; i++)
 		{
-			this.parkingLots[i]=i;
+			parkingLots.put(i, "empty");
 		}
 		this.totalOccupiedSpaces=0;
 		this.garageStatus= GarageStatus.available;
@@ -30,12 +34,13 @@ public class Garage {
 		if(garageStatus.equals(GarageStatus.available))
 		{
 		int assignedParkingLot=0;
-		int totalLots= parkingLots.length;
-		for(int i=1; i<=totalLots ; i++)
+		
+		for(int key: parkingLots.keySet())
 		{
-			if(parkingLots[i]==i)
+			if(parkingLots.get(key).equals("empty"))
 			{ 
-				assignedParkingLot= i;
+				assignedParkingLot= key;
+				parkingLots.put(key, "full");
 				break;	
 			}
 			
@@ -50,10 +55,13 @@ public class Garage {
 			
 	}
 	
-	public float provideTicketForExitingGarage(Ticket ticket)
+	
+	
+	
+	public float provideTicketForExitingGarage(int ticketReferenceNumber, String liscenceNumber)
 	{
-		float amountToBePaid=  exitKiosk.acceptTicket(ticket);
-		return amountToBePaid;
+		return exitKiosk.acceptTicket(ticketReferenceNumber,  liscenceNumber);
+	
 	}
 	
 	public void payParkingFee()
@@ -71,6 +79,17 @@ public class Garage {
 		garageStatus=status;
 	}
 	
+	public void activateSensor(String choiceOfGate)
+	{
+		if (choiceOfGate.equals("entry"))
+		{
+			entryKiosk.closeEntryGate();
+		}
+		else if(choiceOfGate.equals("exit"))
+		{
+			exitKiosk.closeExitGate();
+		}
+	}
 	
 	public class CustomException extends RuntimeException
 	{
@@ -81,5 +100,9 @@ public class Garage {
 		{
 			super(message);
 		}
+	}
+
+	public String getName() {
+		return name;
 	}
 }

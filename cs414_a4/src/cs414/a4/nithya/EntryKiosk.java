@@ -1,27 +1,22 @@
 package cs414.a4.nithya;
 
 public class EntryKiosk {
-	private int kioskNumber;
+	private String kioskNumber;
 	private boolean entryGate;
+	private Register register;
 	
-	public EntryKiosk(int number)
+	public EntryKiosk(String number, Register register)
 	{
 		kioskNumber=number;
 		entryGate=false;
+		this.register=register;
 		
 	}
 	public Ticket generateTicketandOpenGate(Customer customer,int assignedParkingLot)
 	{
 		Ticket ticket= new Ticket(customer, assignedParkingLot);
+		this.register.addTicketToGeneratedTickets(ticket);
 		this.openEntryGate();
-		try{
-		Thread.sleep(3000);
-		this.closeEntryGate();
-		}
-		catch (InterruptedException ie)
-		{
-			throw new CustomException(ie.getMessage());
-		}
 		return ticket;
 	}
 	
@@ -46,6 +41,12 @@ public class EntryKiosk {
 				super(message);
 			}
 		}
+
+
+	public boolean isEntryGate() {
+		return entryGate;
+	}
+	
 	
 	
 

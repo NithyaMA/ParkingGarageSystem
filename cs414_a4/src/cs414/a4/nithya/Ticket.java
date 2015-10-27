@@ -3,6 +3,8 @@ package cs414.a4.nithya;
 import java.util.Date;
 
 public class Ticket {
+	private static int ticketNumber=0;
+	private int ticketReferenceNumber;
 	private int assignedParkingLot;
 	private Customer customer;
 	private Date timeOfEntry;
@@ -16,6 +18,11 @@ public class Ticket {
 		ticketStatus= TicketStatus.pending;
 		this.customer= customer;
 		this.assignedParkingLot=assignedParkingLot;
+		this.parkingRate=10;
+		ticketNumber+=1;
+		this.ticketReferenceNumber=ticketNumber;
+		
+		
 	}
 	
 
@@ -44,9 +51,7 @@ public class Ticket {
 	}
 
 
-	public float getTotalParkingFee() {
-		return totalParkingFee;
-	}
+
 
 
 	public void setParkingRate(float parkingRate) {
@@ -61,6 +66,41 @@ public class Ticket {
 
 	public TicketStatus getTicketStatus() {
 		return ticketStatus;
+	}
+
+
+	public void setAssignedParkingLot(int assignedParkingLot) {
+		this.assignedParkingLot = assignedParkingLot;
+	}
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+
+	public void setTotalParkingFee(float totalParkingFee) {
+		this.totalParkingFee = totalParkingFee;
+	}
+
+
+	public int getAssignedParkingLot() {
+		return assignedParkingLot;
+	}
+
+
+	public float getParkingRate() {
+		return parkingRate;
+	}
+
+
+	public  int getTicketReferenceNumber() {
+		return ticketReferenceNumber;
+	}
+
+
+	public Customer getCustomer() {
+		return customer;
 	}
 	
 	
