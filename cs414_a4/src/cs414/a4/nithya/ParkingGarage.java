@@ -1,0 +1,275 @@
+package cs414.a4.nithya;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Set;
+
+public class ParkingGarage {
+
+	public static void main(String[] args) {
+		
+			
+		Register register= new Register();
+		EntryKiosk entryKiosk= new EntryKiosk("en1",register);
+		ExitKiosk exitKiosk= new ExitKiosk("en2", register);
+		Admin admin= new Admin("admin", "admin123", register);
+		
+		
+		Garage garage= new Garage("CS414", 10, entryKiosk, exitKiosk, register, admin);
+		
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		System.out.println("Welcome to" + garage.getName() +"Parking Garage");
+		
+		Outer:
+			while(true){
+			
+		
+			System.out.println("Garage status : " + garage.getGarageStatus());
+			System.out.println("Total Occupied Spaces : " + garage.getTotalOccupiedSpaces());
+			System.out.println("Total Unoccupied Spaces : " + garage.getTotalUnoccupiedSpaces());
+		System.out.println("We have options to /n 1. Enter Garage /n 2. Exit Garage /n 3. Generate Reports(only for authorized pesons) /n 4.Exit Menu");
+		System.out.println("Please  enter the number of your choice");
+		Inner:
+		while(true){
+		
+		try{
+		
+		int input1= Integer.parseInt(in.readLine());
+		switch(input1)
+		{
+		case 1:
+		{
+			Customer customer= new Customer();
+			System.out.println("Please enter your name");
+			customer.setName(in.readLine());
+			System.out.println("Please enter your phone number");
+			customer.setPhoneNumber(in.readLine());
+			System.out.println("Please enter your email id");
+			customer.setEmailId(in.readLine());
+			System.out.println("Please enter the number on the number plate of the vehicle to be parked");
+			customer.setvehicleNumber(in.readLine());
+			Ticket ticket=garage.enterGarage(customer);
+			System.out.println("A ticket has been generated. Please use the same ticket for exiting the garage");
+			System.out.println("*********************************");
+			System.out.println("TICKET");
+			System.out.println("*********************************");
+			System.out.println("Ticket Number                            " + ticket.getTicketReferenceNumber());
+			System.out.println("Assigned Lot                             " + ticket.getAssignedParkingLot());
+			System.out.println(("Time of entry                           " + ticket.getTimeOfEntry().getTime()));
+			System.out.println("Parking Rate per Hour                    " + ticket.getParkingRate() + "$");
+			System.out.println("*********************************");
+			System.out.println("Please pay the ticket when you leave the garage");
+			System.out.println("Thank You, Have a great parking!!!");
+			System.out.println("***********************************");
+			System.out.println("Entry gate is opened, Please park your vehicle in the assigned parking number");
+			if(entryKiosk.isEntryGate())
+				System.out.println("ENTRY GATE IS OPENED");
+			try{
+			Thread.sleep(3000);
+			garage.activateSensor("entry");
+			}
+			catch(InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+			if(! entryKiosk.isEntryGate())
+					System.out.println("ENTRY GATE IS CLOSED");
+			break Inner;
+			
+		
+		}
+		
+		case 2:
+		{
+			
+			System.out.println("You should provide the ticket generated at the entrance for exiting the garage");
+			System.out.println("Please provide the ticket reference number");
+		    int ticketReferenceNumber= Integer.parseInt(in.readLine());
+		    System.out.println("Please provide the liscence number of the vehicle parked");
+		    String liscenceNumber= in.readLine();
+		    Ticket submittedTicket= garage.validateTicketForExitingGarage(ticketReferenceNumber, liscenceNumber);
+		    System.out.println(String.format("%.2f", submittedTicket.getTotalParkingFee()) + " $ is the total amount to be paid for parking");
+			System.out.println("Please enter your choice of payment: 1. Card  2. Cash");
+			int choiceOfPayment= Integer.parseInt(in.readLine());
+			if(choiceOfPayment==1)
+			{
+				System.out.println("Please enter the card number");
+				Long cardNumber= Long.parseLong(in.readLine());
+				System.out.println("Please enter the date of expiry in the format MM/dd/yyyy such as 03/13/2015");
+				DateFormat format= new SimpleDateFormat("MM/dd/yyyy");
+				Date dateOfExpiry=null;
+				try {
+					dateOfExpiry = format.parse(in.readLine());
+				} catch (ParseException e) {
+					
+					e.printStackTrace();
+				}
+				if(garage.payParkingFeeByCard(submittedTicket, cardNumber, dateOfExpiry))
+					System.out.println("The transaction is successfull. The exit gate will be opened.");
+			
+			}
+			else if(choiceOfPayment==2)
+			{
+			System.out.println("Please provide the cash to pay");	
+			Float amount= Float.parseFloat(in.readLine());
+			System.out.println("The balance due is " + String.format("%.2f",garage.payParkingFeeByCash(submittedTicket, amount)));
+			System.out.println("The transaction is successfull. Exit gate will be opened");
+			
+			}
+			if(exitKiosk.isExitGate())
+				System.out.println("EXIT GATE IS OPENED");
+			try{
+			Thread.sleep(3000);
+			garage.activateSensor("exit");
+			}
+			catch(InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+			if(! exitKiosk.isExitGate())
+					System.out.println("EXIT GATE IS CLOSED");
+			
+			break Inner;
+		}
+		
+		case 3:
+		{
+			System.out.println("Please enter the username");
+			String userName= in.readLine();
+			System.out.println("Please ener the password");
+			String password= in.readLine();
+			if(garage.authorizeAdmin(userName, password))
+			{
+				System.out.println("Do you want to change the entry and exit times of cars for testing purposes yes/no?");
+				System.out.println("Please select the report to be generated");
+				System.out.println("1. Hourly Report Generation");
+				System.out.println("2. Daily Report Generation");
+				System.out.println("3. Weekly Report Generation");
+				System.out.println("4. Monthly Report Generation");
+				System.out.println("5. Find the busiest hour of an average day of a month");
+				System.out.println("6. Exit from the Administartor options");
+				int choice=Integer.parseInt( in.readLine());
+				if(choice==1)
+				{
+					System.out.println("Please provide the starting hour in the form of 'dd-M-yyyy HH:mm:ss'  such as '31-08-1982 13:20:56'");
+					String str= in.readLine();
+					System.out.println("read line1");
+					SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy HH:mm:ss");
+					Date date= sdf.parse(str);
+					Calendar start= Calendar.getInstance();
+					start.setTime(date);
+					System.out.println("smple");
+					Set<Ticket> reportTickets = garage.generateReport("hourly", start);
+					System.out.println("Number of cars during the time : " + reportTickets.size());
+					System.out.println("The name of customers and their vehicle numbers are as follows");
+					for(Ticket t: reportTickets)
+					{
+						System.out.println(t.getCustomer().getName()  + ":" + t.getCustomer().getvehicleNumber());
+						
+					}
+						
+				}
+				else if(choice==2)
+				{
+					System.out.println("Please provide the required date in the form of 'dd-M-yyyy'  such as '31-08-1982'");
+					String str= in.readLine();
+					SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+					Date date= sdf.parse(str);
+					Calendar start= Calendar.getInstance();
+					start.setTime(date);
+					garage.generateReport("hourly", start);
+				}
+				
+				else if (choice==3)
+				{
+					System.out.println("Please provide the starting date of the week in the form of 'dd-M-yyyy'  such as '31-08-1982'");
+					String str= in.readLine();
+					SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+					Date date= sdf.parse(str);
+					Calendar start= Calendar.getInstance();
+					start.setTime(date);
+					garage.generateReport("hourly", start);
+				}
+				else if(choice==4)
+				{
+					System.out.println("Please provide the month in the form of 'M-yyyy'  such as '08-1982'");
+					String str= in.readLine();
+					SimpleDateFormat sdf = new SimpleDateFormat("M-yyyy");
+					Date date= sdf.parse(str);
+					Calendar start= Calendar.getInstance();
+					start.setTime(date);
+					garage.generateReport("hourly", start);
+				}
+				else if(choice==5)
+				
+				{
+		
+					System.out.println("Please provide the month in the form of 'M-yyyy'  such as '08-1982'");
+					String str= in.readLine();
+					SimpleDateFormat sdf = new SimpleDateFormat("M-yyyy");
+					Date date= sdf.parse(str);
+					Calendar start= Calendar.getInstance();
+					start.setTime(date);
+					int hour=garage.findBusiestHourOfMonth(start);
+					System.out.println("Busiest hour is from " + hour + " to " + (hour+1));
+				}
+				else if(choice==6)
+				{
+					System.out.println("Thank you");
+					
+				}
+				else
+					{
+					System.out.println("Invalid choice");
+					}
+				
+				
+				}
+			
+			break Inner;
+			
+		}
+			
+		case 4:
+		{
+			
+			System.out.println("Garage status" + garage.getGarageStatus());
+			System.out.println("Total Occupied Spaces" + garage.getTotalOccupiedSpaces());
+			System.out.println("Total Unoccupied Spaces" + garage.getTotalUnoccupiedSpaces());
+			System.out.println("Thank you. Please come again");
+			break Outer ;
+		}
+		
+		
+		default:
+		{
+			System.out.println("Not a valid option. Please try again");
+			break Inner;
+		}
+			
+			
+		
+		}}
+		
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+			break;
+		}}}
+		}
+		
+		
+}
+
+
+	
+
+

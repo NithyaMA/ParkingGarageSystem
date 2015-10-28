@@ -116,6 +116,10 @@ public class Garage {
 			this.garageStatus= GarageStatus.full;
 	}
 	
+	public int findBusiestHourOfMonth(Calendar month)
+	{
+		return register.findBusiestHourOfTheMonth(month);
+	}
 	public void activateSensor(String choiceOfGate)
 	{
 		if (choiceOfGate.equals("entry"))

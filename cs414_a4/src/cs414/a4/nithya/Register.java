@@ -17,24 +17,29 @@ public class Register {
 	
 	public Set<Ticket> generateReport(String choice,Calendar start )
 	{	
-		System.out.println("1");
+		
 		Calendar stop=(Calendar)start.clone();
-		System.out.println("stop is" + stop);
+		
 		switch(choice)
 		{ case "hourly" :
-			System.out.println("entered choice");
+			
 			stop.add(Calendar.HOUR, 1);
 			break;
 			
 		case "daily" :
+			
 			stop.add(Calendar.HOUR, 24);
+			break;
 			
 		case "weekly" :
 			
 			stop.add(Calendar.DATE, 7);
+			break;
 			
 		case "monthly" :
+			
 			stop.add(Calendar.MONTH, 1);
+			break;
 		
 		}
 				
@@ -43,18 +48,18 @@ public class Register {
 		for(Ticket ticket: tickets)
 		{
 			Calendar entry= (Calendar)ticket.getTimeOfEntry().clone();
-			System.out.println("entry" + entry);
+			
 			
 			if(ticket.getTicketStatus().equals(TicketStatus.pending))
 			{
 				if( (entry.getTime().before(start.getTime())))
-					System.out.println("aaa");
+					
 					reportTickets.add(ticket);
 			}
 			else
 			{
 			Calendar exit= (Calendar)ticket.getTimeOfExit().clone();
-			System.out.println("exit" + exit);
+			
 			if( (entry.getTime().after(start.getTime()) && entry.getTime().before(stop.getTime()))  ||  (exit.getTime().after(start.getTime()) && exit.getTime().before(stop.getTime()))  ||  (entry.getTime().before(start.getTime()) && exit.getTime().after(stop.getTime())) )
 				{
 				reportTickets.add(ticket);
@@ -69,12 +74,14 @@ public class Register {
 	
 	public int findBusiestHourOfTheMonth(Calendar startOfMonth)
 	{
+		
+		
 		Calendar stopOfMonth =(Calendar) startOfMonth.clone();
 		Calendar cal = (Calendar) startOfMonth.clone();
 		stopOfMonth.set(Calendar.DATE, 30);
 		int[] occupancyNumbers= new int[30];
 		int dat=0;
-		int sum=0;
+		
 		for (startOfMonth.getTime(); startOfMonth.getTime().before(stopOfMonth.getTime()); startOfMonth.add(Calendar.DATE, 1)) 
 		    
 			{
@@ -84,45 +91,37 @@ public class Register {
 				dat++;
 			}
 			
-			int closest=0;
-			for(int j=0; j<30; j++)
+		
+		
+	
+			int busiestDay=1;
+			
+			for(int j=2; j<occupancyNumbers.length; j++)
 			{
-				sum=sum + occupancyNumbers[j];
-				float avg= (float) (sum/30.00);
-				int find= (int) avg;
-				closest = occupancyNumbers[0];
-			    int distance = Math.abs(closest - find);
-			    for(int i: occupancyNumbers)	
-			    {
-			       int distanceI = Math.abs(i - find);
-			       if(distance > distanceI) 
-			       {
-			           closest = i;
-			           distance = distanceI;
-			       }
-			    }
-			}
-			int requireday=0;
-				for(int avgDay=0; avgDay<30; avgDay++)
+				if(occupancyNumbers[j]> occupancyNumbers[busiestDay])
 				{
-					if (occupancyNumbers[avgDay]==closest)
-						requireday= avgDay +1;
+					
+					busiestDay=j;
 				}
 			   
+			}
+			int requireday=busiestDay;
+		
 			   
+			
 			   cal.set(Calendar.DATE, requireday);
-			   Calendar cal2 = (Calendar) cal.clone();
-			   cal.set(Calendar.HOUR, 24);
-			   
+	
 			   int [] occupants= new int[24];
 			   int hour=0;
-			   for ( cal.getTime(); cal.getTime().before(cal2.getTime()); cal.add(Calendar.HOUR, 1)) 
+			   for (int hr=0; hr<24; hr++) 
 			   {
-				   
+				   cal.set(Calendar.HOUR, hr);
 				  int occupNum= (generateReport("hourly", cal)).size();
 					occupants[hour]= occupNum;    
 					hour++;
 			   }
+			   
+			   
 			   int max=0;
 			   int busiestHour = 0;
 			   
@@ -136,7 +135,7 @@ public class Register {
 					  
 				  }
 			   }
-			   return busiestHour;
+			   return (busiestHour-1);
 			   
 		}
 		
