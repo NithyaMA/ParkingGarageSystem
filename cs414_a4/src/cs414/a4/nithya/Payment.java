@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Payment {
 	
-	private Ticket ticket;
+	
 	
 	public float makePaymentByCash(float parkingFee,float amount)
 	{

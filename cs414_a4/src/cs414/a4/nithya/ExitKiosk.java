@@ -16,7 +16,7 @@ public class ExitKiosk {
 		this.register= register;
 		
 	}
-	public Ticket validateTicket(int ticketReferenceNumber, String liscenceNumber)
+	public Ticket validateTicket(int ticketReferenceNumber, String vehicleNumber)
 	{	
 		boolean flag=false;
 		Ticket submittedTicket=null;
@@ -26,7 +26,7 @@ public class ExitKiosk {
 			if(ticket.getTicketReferenceNumber()==ticketReferenceNumber)
 			{	
 				flag=true;
-				if(ticket.getCustomer().getLiscenceNumber().equals(liscenceNumber))
+				if(ticket.getCustomer().getvehicleNumber().equals(vehicleNumber))
 				{
 					 Calendar cal = Calendar.getInstance();
 					ticket.setTimeOfExit(cal);

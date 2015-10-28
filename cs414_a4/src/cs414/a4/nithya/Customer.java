@@ -5,7 +5,7 @@ public class Customer {
 	private String name;
 	private String phoneNumber;
 	private String emailId;
-	private String liscenceNumber;
+	private String vehicleNumber;
 	
 	public String getName() {
 		return name;
@@ -25,11 +25,11 @@ public class Customer {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public String getLiscenceNumber() {
-		return liscenceNumber;
+	public String getvehicleNumber() {
+		return vehicleNumber;
 	}
-	public void setLiscenceNumber(String liscenceNumber) {
-		this.liscenceNumber = liscenceNumber;
+	public void setvehicleNumber(String vehicleNumber) {
+		this.vehicleNumber =vehicleNumber;
 	}
 	
 }

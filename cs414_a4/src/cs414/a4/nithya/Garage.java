@@ -1,8 +1,10 @@
 package cs414.a4.nithya;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Garage {
 	
@@ -15,9 +17,10 @@ public class Garage {
 	private EntryKiosk entryKiosk;
 	private ExitKiosk exitKiosk;
 	private Register register;
+	private Admin admin;
 	
 	
-	public Garage(String name, int numberOfParkingLots, EntryKiosk entryKiosk, ExitKiosk exitKiosk, Register register)
+	public Garage(String name, int numberOfParkingLots, EntryKiosk entryKiosk, ExitKiosk exitKiosk, Register register, Admin admin)
 	{
 		this.name=name;
 	
@@ -31,6 +34,7 @@ public class Garage {
 		this.entryKiosk=entryKiosk;
 		this.exitKiosk=exitKiosk;
 		this.register=register;
+		this.admin=admin;
 	}
 	public Ticket enterGarage(Customer customer)
 
@@ -88,6 +92,10 @@ public class Garage {
 		Payment payment= new Payment();
 		if(payment.makePaymentByCard(cardNumber, expiryDate))
 		{
+			ticket.setTicketStatus(TicketStatus.paid);
+			totalOccupiedSpaces-=1;
+			totalUnoccupiedSpaces+=1;
+			updateStatus();
 			exitKiosk.openExitGate();
 			return true;
 		}
@@ -95,9 +103,9 @@ public class Garage {
 		 return false;
 	}
 	
-	public void generateReport(int choiceKey)
+	public Set<Ticket> generateReport(String choice, Calendar start)
 	{
-		
+		return register.generateReport(choice, start);
 	}
 	
 	public void updateStatus()
@@ -118,6 +126,11 @@ public class Garage {
 		{
 			exitKiosk.closeExitGate();
 		}
+	}
+	
+	public boolean authorizeAdmin(String userName, String password)
+	{
+		return this.admin.authorizeAdmin(userName, password);
 	}
 	
 	public class CustomException extends RuntimeException
