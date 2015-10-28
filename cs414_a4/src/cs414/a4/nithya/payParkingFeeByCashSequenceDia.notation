@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Gks44H24EeW94uXcpNEZjA" type="PapyrusUMLSequenceDiagram" name="NewDiagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_Gks44X24EeW94uXcpNEZjA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Gks44n24EeW94uXcpNEZjA" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Gks44324EeW94uXcpNEZjA" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_X4AMsH24EeW94uXcpNEZjA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_X4TusH24EeW94uXcpNEZjA" type="5002"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_X4iYMH24EeW94uXcpNEZjA" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_X4iYMX24EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X4iYMn24EeW94uXcpNEZjA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_wK2skH24EeW94uXcpNEZjA" type="3003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_wK3ToX24EeW94uXcpNEZjA" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_wK3Ton24EeW94uXcpNEZjA" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="payParkingFeeByCashSequenceDia.uml#_wKuJsH24EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wK3ToH24EeW94uXcpNEZjA" x="29" y="27" width="16" height="505"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_lzJnAH26EeW94uXcpNEZjA" type="3003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_lzKOEH26EeW94uXcpNEZjA" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_lzKOEX26EeW94uXcpNEZjA" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="payParkingFeeByCashSequenceDia.uml#_lzBEIH26EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lzJnAX26EeW94uXcpNEZjA" x="38" y="402" height="50"/>
+        </children>
+        <element xmi:type="uml:Lifeline" href="payParkingFeeByCashSequenceDia.uml#_X377QH24EeW94uXcpNEZjA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X4AMsX24EeW94uXcpNEZjA" x="262" y="10" width="74" height="609"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_YT9v8H24EeW94uXcpNEZjA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_YT-XAH24EeW94uXcpNEZjA" type="5002"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_YULyYH24EeW94uXcpNEZjA" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_YULyYX24EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YULyYn24EeW94uXcpNEZjA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_jurqUH25EeW94uXcpNEZjA" type="3003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_jusRYH25EeW94uXcpNEZjA" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_jusRYX25EeW94uXcpNEZjA" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="payParkingFeeByCashSequenceDia.uml#_jujHcH25EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jurqUX25EeW94uXcpNEZjA" x="27" y="52" width="16" height="50"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_ZCOSMH26EeW94uXcpNEZjA" type="3003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZCPgUH26EeW94uXcpNEZjA" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZCPgUX26EeW94uXcpNEZjA" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="payParkingFeeByCashSequenceDia.uml#_ZCJZsH26EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZCOSMX26EeW94uXcpNEZjA" x="26" y="311" height="50"/>
+        </children>
+        <element xmi:type="uml:Lifeline" href="payParkingFeeByCashSequenceDia.uml#_YT6soH24EeW94uXcpNEZjA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YT9v8X24EeW94uXcpNEZjA" x="468" y="10" width="69" height="609"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_aFszUH24EeW94uXcpNEZjA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_aFuBcH24EeW94uXcpNEZjA" type="5002"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_aF7c0H24EeW94uXcpNEZjA" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_aF7c0X24EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aF7c0n24EeW94uXcpNEZjA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_0kuk8H26EeW94uXcpNEZjA" type="3006">
+          <element xmi:type="uml:ActionExecutionSpecification" href="payParkingFeeByCashSequenceDia.uml#_0koeUH26EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0kuk8X26EeW94uXcpNEZjA" x="31" y="487" width="16" height="42"/>
+        </children>
+        <element xmi:type="uml:Lifeline" href="payParkingFeeByCashSequenceDia.uml#_aFpwAH24EeW94uXcpNEZjA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aFszUX24EeW94uXcpNEZjA" x="712" y="10" width="79" height="623"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_e-4v0H24EeW94uXcpNEZjA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_e-4v0n24EeW94uXcpNEZjA" type="5002"/>
+        <element xmi:type="uml:Lifeline" href="payParkingFeeByCashSequenceDia.uml#_e-2TkH24EeW94uXcpNEZjA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e-4v0X24EeW94uXcpNEZjA" x="911" y="10" width="78"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_w2nw8H25EeW94uXcpNEZjA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_w2oYAH25EeW94uXcpNEZjA" type="5002"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_w2yJAH25EeW94uXcpNEZjA" type="compartment_shape_display">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_w2yJAX25EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w2yJAn25EeW94uXcpNEZjA"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_B5QykH26EeW94uXcpNEZjA" type="3003">
+          <children xmi:type="notation:DecorationNode" xmi:id="_B5Qykn26EeW94uXcpNEZjA" type="BehaviorExecutionSpecification_Behavior">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_B5Qyk326EeW94uXcpNEZjA" x="18" y="18"/>
+          </children>
+          <element xmi:type="uml:BehaviorExecutionSpecification" href="payParkingFeeByCashSequenceDia.uml#_B5CwIH26EeW94uXcpNEZjA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B5QykX26EeW94uXcpNEZjA" x="34" y="43" height="50"/>
+        </children>
+        <element xmi:type="uml:Lifeline" href="payParkingFeeByCashSequenceDia.uml#_w2lUsH25EeW94uXcpNEZjA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w2nw8X25EeW94uXcpNEZjA" x="570" y="173" width="84"/>
+      </children>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gks45H24EeW94uXcpNEZjA"/>
+    </children>
+    <element xmi:type="uml:Interaction" href="payParkingFeeByCashSequenceDia.uml#_GkZW4H24EeW94uXcpNEZjA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gks45X24EeW94uXcpNEZjA" width="1014"/>
+  </children>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_Gks45n24EeW94uXcpNEZjA" name="diagram_compatibility_version" stringValue="1.0.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Gks45324EeW94uXcpNEZjA"/>
+  <styles xmi:type="style:PapyrusViewStyle" xmi:id="_Gks46H24EeW94uXcpNEZjA">
+    <owner xmi:type="uml:Model" href="payParkingFeeByCashSequenceDia.uml#_GjW1EH24EeW94uXcpNEZjA"/>
+  </styles>
+  <element xmi:type="uml:Interaction" href="payParkingFeeByCashSequenceDia.uml#_GkZW4H24EeW94uXcpNEZjA"/>
+  <edges xmi:type="notation:Edge" xmi:id="_pBCKMH24EeW94uXcpNEZjA" type="4009" source="_Gks44X24EeW94uXcpNEZjA" target="_X4AMsH24EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_pBCxQH24EeW94uXcpNEZjA" type="6007">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_pBCxQX24EeW94uXcpNEZjA" x="1" y="-36"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_pBDYUH24EeW94uXcpNEZjA" type="6014">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_pBDYUX24EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_pBCKMX24EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_pBCKMn24EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_pBDYUn24EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_pAuoMH24EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pBCKM324EeW94uXcpNEZjA" points="[-79217, -71915, 727, 660]$[-79944, -72575, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pBjuoH24EeW94uXcpNEZjA" id="(56.0,102.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pBk8wH24EeW94uXcpNEZjA" id="(0.0,0.039723661485319514){R}"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_lfKwgH25EeW94uXcpNEZjA" type="4003" source="_wK2skH24EeW94uXcpNEZjA" target="_jurqUH25EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_lfL-oH25EeW94uXcpNEZjA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lfL-oX25EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_lfL-on25EeW94uXcpNEZjA" type="6008">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lfL-o325EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_lfKwgX25EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_lfKwgn25EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_lfMlsH25EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_le1ZUH25EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lfKwg325EeW94uXcpNEZjA" points="[4, -8, -188, 1]$[208, -9, 16, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lfuKIH25EeW94uXcpNEZjA" id="(0.75,0.06732673267326733)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lfuxMH25EeW94uXcpNEZjA" id="(0.0,0.0){8}"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_qOTZIH25EeW94uXcpNEZjA" type="4005" source="_jurqUH25EeW94uXcpNEZjA" target="_wK2skH24EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_qOUAMH25EeW94uXcpNEZjA" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qOUAMX25EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_qOUAMn25EeW94uXcpNEZjA" type="6010">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qOUnQH25EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_qOTZIX25EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qOTZIn25EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_qOUnQX25EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_qNuxYH25EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qOTZI325EeW94uXcpNEZjA" points="[0, 0, 204, -65]$[-188, 65, 16, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qOxTMH25EeW94uXcpNEZjA" id="(0.0,1.0){32}"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qOx6QH25EeW94uXcpNEZjA" id="(0.5,0.15643564356435644)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_w3D10H25EeW94uXcpNEZjA" type="4006" source="_wK2skH24EeW94uXcpNEZjA" target="_w2nw8H25EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_w3Ec4H25EeW94uXcpNEZjA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_w3Ec4X25EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_w3FD8H25EeW94uXcpNEZjA" type="6011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_w3FD8X25EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_w3D10X25EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_w3D10n25EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_w3FD8n25EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_w242sH25EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_w3D10325EeW94uXcpNEZjA" points="[0, 0, 305, 163]$[-305, -163, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w3ukMH25EeW94uXcpNEZjA" id="(1.0,0.1900990099009901)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_C1jbsH26EeW94uXcpNEZjA" type="4003" source="_wK2skH24EeW94uXcpNEZjA" target="_B5QykH26EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_C1kCwH26EeW94uXcpNEZjA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_C1kCwX26EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_C1kp0H26EeW94uXcpNEZjA" type="6008">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_C1kp0X26EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_C1jbsX26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_C1jbsn26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_C1kp0n26EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_C1M2YH26EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_C1jbs326EeW94uXcpNEZjA" points="[6, 0, -297, -22]$[319, 22, 16, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_C2QmUH26EeW94uXcpNEZjA" id="(0.5,0.3425742574257426)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_C2RNYH26EeW94uXcpNEZjA" id="(0.0,0.0){8}"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_QL6_4H26EeW94uXcpNEZjA" type="4005" source="_B5QykH26EeW94uXcpNEZjA" target="_wK2skH24EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QL8OAH26EeW94uXcpNEZjA" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QL8OAX26EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QL8OAn26EeW94uXcpNEZjA" type="6010">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QL81EH26EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_QL6_4X26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_QL6_4n26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_QL81EX26EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_QLNOMH26EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QL6_4326EeW94uXcpNEZjA" points="[0, 0, 313, -38]$[-297, 38, 16, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QMluQH26EeW94uXcpNEZjA" id="(0.0,1.0){32}"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QMmVUH26EeW94uXcpNEZjA" id="(0.375,0.4633663366336634)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_a-l4QH26EeW94uXcpNEZjA" type="4003" source="_wK2skH24EeW94uXcpNEZjA" target="_ZCOSMH26EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_a-nGYH26EeW94uXcpNEZjA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_a-nGYX26EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_a-nGYn26EeW94uXcpNEZjA" type="6008">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_a-nGY326EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_a-l4QX26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_a-l4Qn26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_a-nGZH26EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_a-DswH26EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a-l4Q326EeW94uXcpNEZjA" points="[8, 2, -187, 9]$[211, -7, 16, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a_qPQH26EeW94uXcpNEZjA" id="(0.5,0.5782178217821782)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a_q2UH26EeW94uXcpNEZjA" id="(0.0,0.0){8}"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_lyb1UH26EeW94uXcpNEZjA" type="4003" source="_wK2skH24EeW94uXcpNEZjA" target="_lzJnAH26EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_lyccYH26EeW94uXcpNEZjA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lyccYX26EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_lydDcH26EeW94uXcpNEZjA" type="6008">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lydDcX26EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_lyb1UX26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_lyb1Un26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_lydDcn26EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_llOfwH26EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lyb1U326EeW94uXcpNEZjA" points="[3, 109, -8, 58]$[11, 109, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ly7kkH26EeW94uXcpNEZjA" id="(0.3125,0.6435643564356436)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lzoIIH26EeW94uXcpNEZjA" id="(1.0, 0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_0jsqMH26EeW94uXcpNEZjA" type="4003" source="_wK2skH24EeW94uXcpNEZjA" target="_0kuk8H26EeW94uXcpNEZjA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_0jtRQH26EeW94uXcpNEZjA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_0jt4UH26EeW94uXcpNEZjA" x="1" y="-13"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_0jt4UX26EeW94uXcpNEZjA" type="6008">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_0jt4Un26EeW94uXcpNEZjA" x="1" y="-33"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_0jsqMX26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_0jsqMn26EeW94uXcpNEZjA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_0jt4U326EeW94uXcpNEZjA"/>
+    <element xmi:type="uml:Message" href="payParkingFeeByCashSequenceDia.uml#_0YA-oH26EeW94uXcpNEZjA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0jsqM326EeW94uXcpNEZjA" points="[5, 3, -452, 0]$[457, 3, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0kcREH26EeW94uXcpNEZjA" id="(0.6875,0.904950495049505)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0l3NYH26EeW94uXcpNEZjA" id="(1.0,0.0)"/>
+  </edges>
+</notation:Diagram>

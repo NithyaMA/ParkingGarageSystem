@@ -120,7 +120,7 @@ public class ParkingGarage {
 			{
 			System.out.println("Please provide the cash to pay");	
 			Float amount= Float.parseFloat(in.readLine());
-			System.out.println("The balance due is " + String.format("%.2f",garage.payParkingFeeByCash(submittedTicket, amount)));
+			System.out.println("The balance due is " + String.format("%.2f",garage.payParkingFeeByCash(submittedTicket, amount)) + "$");
 			System.out.println("The transaction is successfull. Exit gate will be opened");
 			
 			}
@@ -148,7 +148,38 @@ public class ParkingGarage {
 			String password= in.readLine();
 			if(garage.authorizeAdmin(userName, password))
 			{
-				System.out.println("Do you want to change the entry and exit times of cars for testing purposes yes/no?");
+				
+				while(true)
+				{
+				System.out.println("Do you want to change the entry and exit times of cars for testing purposes? Please enter yes or no");
+				String testingChoice= in.readLine();
+				if(testingChoice.equals("yes"))
+				{
+					System.out.println("Please type the ticket number of the car you wish to change");
+					int num= Integer.parseInt(in.readLine());
+					System.out.println("Please enter 1 to change the entry time and 2 to change the exit time ");
+					int ch= Integer.parseInt(in.readLine());
+					System.out.println("Please provide the date you wish to change in the form of 'dd-M-yyyy HH:mm:ss'  such as '31-08-1982 13:20:56'");
+					String str= in.readLine();
+					SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy HH:mm:ss");
+					Date date= sdf.parse(str);
+					Calendar call= Calendar.getInstance();
+					call.setTime(date);
+					if(ch==1)
+						{garage.stimulateTime("entry", call, num);
+						System.out.println("Changes made succesfully");
+						}
+					else if(ch==2)
+						{garage.stimulateTime("exit", call, num);
+						System.out.println("changes made successfuly");
+						}
+					else
+						break;
+					
+				}
+				else
+					break;
+				}
 				System.out.println("Please select the report to be generated");
 				System.out.println("1. Hourly Report Generation");
 				System.out.println("2. Daily Report Generation");
@@ -185,7 +216,14 @@ public class ParkingGarage {
 					Date date= sdf.parse(str);
 					Calendar start= Calendar.getInstance();
 					start.setTime(date);
-					garage.generateReport("hourly", start);
+					Set<Ticket> reportTickets=garage.generateReport("daily", start);
+					System.out.println("Number of cars during the time : " + reportTickets.size());
+					System.out.println("The name of customers and their vehicle numbers are as follows");
+					for(Ticket t: reportTickets)
+					{
+						System.out.println(t.getCustomer().getName()  + ":" + t.getCustomer().getvehicleNumber());
+						
+					}
 				}
 				
 				else if (choice==3)
@@ -196,7 +234,15 @@ public class ParkingGarage {
 					Date date= sdf.parse(str);
 					Calendar start= Calendar.getInstance();
 					start.setTime(date);
-					garage.generateReport("hourly", start);
+					Set<Ticket> reportTickets=garage.generateReport("weekly", start);
+					System.out.println("Number of cars during the time : " + reportTickets.size());
+					System.out.println("The name of customers and their vehicle numbers are as follows");
+					for(Ticket t: reportTickets)
+					{
+						System.out.println(t.getCustomer().getName()  + ":" + t.getCustomer().getvehicleNumber());
+						
+					}
+					
 				}
 				else if(choice==4)
 				{
@@ -206,7 +252,14 @@ public class ParkingGarage {
 					Date date= sdf.parse(str);
 					Calendar start= Calendar.getInstance();
 					start.setTime(date);
-					garage.generateReport("hourly", start);
+					Set<Ticket> reportTickets=garage.generateReport("monthly", start);
+					System.out.println("Number of cars during the time : " + reportTickets.size());
+					System.out.println("The name of customers and their vehicle numbers are as follows");
+					for(Ticket t: reportTickets)
+					{
+						System.out.println(t.getCustomer().getName()  + ":" + t.getCustomer().getvehicleNumber());
+						
+					}
 				}
 				else if(choice==5)
 				
@@ -241,9 +294,9 @@ public class ParkingGarage {
 		case 4:
 		{
 			
-			System.out.println("Garage status" + garage.getGarageStatus());
-			System.out.println("Total Occupied Spaces" + garage.getTotalOccupiedSpaces());
-			System.out.println("Total Unoccupied Spaces" + garage.getTotalUnoccupiedSpaces());
+			System.out.println("Garage status " + garage.getGarageStatus());
+			System.out.println("Total Occupied Spaces " + garage.getTotalOccupiedSpaces());
+			System.out.println("Total Unoccupied Spaces " + garage.getTotalUnoccupiedSpaces());
 			System.out.println("Thank you. Please come again");
 			break Outer ;
 		}

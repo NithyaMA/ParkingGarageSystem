@@ -1,5 +1,6 @@
 package cs414.a4.nithya;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,12 +26,29 @@ public class Admin {
 	}
 	
 	
-	public void  stimulateTime()
+	public void  stimulateTimeForEntry(Calendar cal, int ticketNum)
 	{
-		Set <Ticket> ticketsCopy= new HashSet<Ticket>();
+		
 		for(Ticket t: this.register.getTickets())
 		{
-		ticketsCopy.add(t);
+			if(t.getTicketReferenceNumber()==ticketNum)
+			{
+				t.setTimeOfEntry(cal);
+				break;
+			}
+		}
+	
+}
+	
+	public void  stimulateTimeForExit(Calendar cal, int ticketNum)
+	{
+		for(Ticket t: this.register.getTickets())
+		{
+			if(t.getTicketReferenceNumber()==ticketNum)
+			{
+				t.setTimeOfExit(cal);
+				break;
+			}
 		}
 	
 }

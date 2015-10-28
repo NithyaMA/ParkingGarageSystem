@@ -77,8 +77,9 @@ public class Garage {
 	
 	public float payParkingFeeByCash( Ticket ticket, float amount)
 	{
+		float fee=ticket.getTotalParkingFee();
 		Payment payment= new Payment();
-		float balanceDue=payment.makePaymentByCash(ticket.getTotalParkingFee(), amount);
+		float balanceDue=payment.makePaymentByCash(fee, amount);
 		ticket.setTicketStatus(TicketStatus.paid);
 		totalOccupiedSpaces-=1;
 		totalUnoccupiedSpaces+=1;
@@ -137,6 +138,19 @@ public class Garage {
 		return this.admin.authorizeAdmin(userName, password);
 	}
 	
+	public void stimulateTime(String testingChoice, Calendar cal, int ticketNum)
+	{
+		if (testingChoice.equals("entry"))
+		{
+			admin.stimulateTimeForEntry(cal, ticketNum);
+		}
+		else if (testingChoice.equals("exit"))
+		{
+			admin.stimulateTimeForExit(cal, ticketNum);
+		}
+		else
+			throw new CustomException("Testing choice provided is not correct. Please try again");
+	}
 	public class CustomException extends RuntimeException
 	{
 		

@@ -89,6 +89,17 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
       </ownedParameter>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_S5kQ4H3FEeW94uXcpNEZjA" name="stimulateTime">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_aBadUH3FEeW94uXcpNEZjA" name="testingChoice">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_d0JvIH3FEeW94uXcpNEZjA" name="cal">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_gvk-cH3FEeW94uXcpNEZjA" name="ticketNum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_n7pTAHazEeWvqaNv4is7OA" name="Customer">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_IwH94HjyEeWvqaNv4is7OA" name="name" visibility="private">
@@ -290,6 +301,22 @@
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_OKmvkH2SEeWJI4LpKLuiqQ" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_jzHA4H3FEeW94uXcpNEZjA" name="stimulateTimeForEntry">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_t14GUH3FEeW94uXcpNEZjA" name="cal">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wfraIH3FEeW94uXcpNEZjA" name="ticketNum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_kOO2oH3FEeW94uXcpNEZjA" name="stimulateTimeForExit">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1fSHsH3FEeW94uXcpNEZjA" name="cal">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_3m8-0H3FEeW94uXcpNEZjA" name="ticketNum">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>

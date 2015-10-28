@@ -34,7 +34,7 @@ public class Register {
 			
 		case "weekly" :
 			
-			stop.add(Calendar.DATE, 7);
+			stop.add(Calendar.HOUR, 168);
 			break;
 			
 		case "monthly" :
@@ -53,7 +53,7 @@ public class Register {
 			
 			if(ticket.getTicketStatus().equals(TicketStatus.pending))
 			{
-				if( (entry.getTime().before(start.getTime())))
+				if( (entry.getTime().before(stop.getTime()))  )
 					
 					reportTickets.add(ticket);
 			}
