@@ -9,9 +9,10 @@ public class Register {
 
 	private Set <Ticket> tickets= new HashSet<Ticket>();
 	
-	public void addTicketToGeneratedTickets(Ticket ticket)
+	public boolean addTicketToGeneratedTickets(Ticket ticket)
 	{
 		tickets.add(ticket);
+		return true;
 	}
 	
 	

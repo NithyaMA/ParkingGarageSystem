@@ -12,8 +12,9 @@ public class Ticket {
 	private float parkingRate;
 	private TicketStatus ticketStatus;
 	private float totalParkingFee;
+	private Register register;
 	
-	public Ticket(Customer customer,int assignedParkingLot)
+	public Ticket(Customer customer,int assignedParkingLot, Register register)
 	{
 		ticketStatus= TicketStatus.pending;
 		this.customer= customer;
@@ -23,9 +24,13 @@ public class Ticket {
 		this.ticketReferenceNumber=ticketNumber;
 		 Calendar cal = Calendar.getInstance();
 		this.timeOfEntry=cal;
+		this.register=register;
+		this.register.addTicketToGeneratedTickets(this);
+		
 		
 		
 	}
+	
 	
 
 	public void calculateTotalParkingFee() {

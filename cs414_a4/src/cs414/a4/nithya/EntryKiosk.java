@@ -14,8 +14,8 @@ public class EntryKiosk {
 	}
 	public Ticket generateTicketandOpenGate(Customer customer,int assignedParkingLot)
 	{
-		Ticket ticket= new Ticket(customer, assignedParkingLot);
-		this.register.addTicketToGeneratedTickets(ticket);
+		Ticket ticket= new Ticket(customer, assignedParkingLot, this.register);
+		
 		this.openEntryGate();
 		return ticket;
 	}

@@ -69,9 +69,9 @@ public class Garage {
 	
 	
 	
-	public Ticket validateTicketForExitingGarage(int ticketReferenceNumber, String liscenceNumber)
+	public Ticket validateTicketForExitingGarage(int ticketReferenceNumber, String vehicleNumber)
 	{
-		return exitKiosk.validateTicket(ticketReferenceNumber,  liscenceNumber);
+		return exitKiosk.validateTicket(ticketReferenceNumber,  vehicleNumber);
 	
 	}
 	
