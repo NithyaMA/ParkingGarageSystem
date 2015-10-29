@@ -46,6 +46,9 @@ public class EntryKiosk {
 	public boolean isEntryGate() {
 		return entryGate;
 	}
+	public Register getRegister() {
+		return register;
+	}
 	
 	
 	

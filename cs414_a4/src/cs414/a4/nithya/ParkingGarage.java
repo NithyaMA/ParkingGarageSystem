@@ -47,15 +47,16 @@ public class ParkingGarage {
 		{
 		case 1:
 		{
-			Customer customer= new Customer();
+			
 			System.out.println("Please enter your name");
-			customer.setName(in.readLine());
+			String name=in.readLine();
 			System.out.println("Please enter your phone number");
-			customer.setPhoneNumber(in.readLine());
+			String phoneNumber=in.readLine();
 			System.out.println("Please enter your email id");
-			customer.setEmailId(in.readLine());
+			String emailId=in.readLine();
 			System.out.println("Please enter the number on the number plate of the vehicle to be parked");
-			customer.setvehicleNumber(in.readLine());
+			String vehicleNumber=in.readLine();
+			Customer customer= new Customer(name,phoneNumber,emailId,vehicleNumber);
 			Ticket ticket=garage.enterGarage(customer);
 			System.out.println("A ticket has been generated. Please use the same ticket for exiting the garage");
 			System.out.println("*********************************");

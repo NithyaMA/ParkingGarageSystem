@@ -7,6 +7,20 @@ public class Customer {
 	private String emailId;
 	private String vehicleNumber;
 	
+	public Customer(String name, String phoneNumber, String emailId, String vehicleNumber)
+	{
+		this.name=name;
+		if(emailId.indexOf('@')==-1)
+			throw new CustomException("E mail id is not valid");
+		if(emailId.indexOf('.')==-1)
+			throw new CustomException("E mail id is not valid");
+		this.emailId=emailId;
+		if(phoneNumber.length()<6)
+			throw new CustomException("Phone number is not valid");
+			
+		this.phoneNumber=phoneNumber;
+		this.vehicleNumber=vehicleNumber;
+	}
 	public String getName() {
 		return name;
 	}
@@ -16,20 +30,21 @@ public class Customer {
 	public String getEmailId() {
 		return emailId;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
+	
 	public String getvehicleNumber() {
 		return vehicleNumber;
 	}
-	public void setvehicleNumber(String vehicleNumber) {
-		this.vehicleNumber =vehicleNumber;
+	
+	
+	public class CustomException extends RuntimeException
+	{
+		
+		private static final long serialVersionUID = 1L;
+		
+		public CustomException(String message)
+		{
+			super(message);
+		}
 	}
 	
 }

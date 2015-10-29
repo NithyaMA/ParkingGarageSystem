@@ -36,10 +36,9 @@ public class Ticket {
 	public void calculateTotalParkingFee() {
 		
 		long timeDiffInMs= timeOfExit.getTimeInMillis()  -   timeOfEntry.getTimeInMillis();
-		System.out.println(timeDiffInMs);
+		
 		 float timeDiffInHours =(float) timeDiffInMs/(float)(1000*60*60);
-		 System.out.println(timeDiffInHours);
-		 System.out.println(parkingRate);
+
 		this.totalParkingFee= (timeDiffInHours * parkingRate);
 		
 		
@@ -121,6 +120,12 @@ public class Ticket {
 
 	public float getTotalParkingFee() {
 		return totalParkingFee;
+	}
+
+
+
+	public Register getRegister() {
+		return register;
 	}
 	
 	
