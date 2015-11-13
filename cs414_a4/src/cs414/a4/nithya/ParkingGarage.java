@@ -20,13 +20,13 @@ public class ParkingGarage {
 		Admin admin= new Admin("admin", "admin123", register);
 		
 		
-		Garage garage= new Garage("CS414", 10, entryKiosk, exitKiosk, register, admin);
+		Garage garage= new Garage("CS414", 2, entryKiosk, exitKiosk, register, admin);
 		
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		
 		
-		System.out.println("Welcome to" + garage.getName() +"Parking Garage");
+		System.out.println("Welcome to " + garage.getName() +" Parking Garage");
 		
 		Outer:
 			while(true){
@@ -35,8 +35,12 @@ public class ParkingGarage {
 			System.out.println("Garage status : " + garage.getGarageStatus());
 			System.out.println("Total Occupied Spaces : " + garage.getTotalOccupiedSpaces());
 			System.out.println("Total Unoccupied Spaces : " + garage.getTotalUnoccupiedSpaces());
-		System.out.println("We have options to /n 1. Enter Garage /n 2. Exit Garage /n 3. Generate Reports(only for authorized pesons) /n 4.Exit Menu");
-		System.out.println("Please  enter the number of your choice");
+		System.out.println("We have the following options. Please enter the number of your choice");
+		System.out.println("1. Enter Garage");
+		System.out.println("2. Exit Garage");
+		System.out.println("3. Generate Reports(only for authorized pesons)"); 
+		System.out.println("4. Exit Menu");
+	
 		Inner:
 		while(true){
 		
@@ -47,7 +51,9 @@ public class ParkingGarage {
 		{
 		case 1:
 		{
-			
+			if(garage.getGarageStatus().equals(GarageStatus.full))
+				System.out.println("Sorry, You cannot enter garage. Garage is full");
+			else{
 			System.out.println("Please enter your name");
 			String name=in.readLine();
 			System.out.println("Please enter your phone number");
@@ -83,6 +89,7 @@ public class ParkingGarage {
 			}
 			if(! entryKiosk.isEntryGate())
 					System.out.println("ENTRY GATE IS CLOSED");
+			}
 			break Inner;
 			
 		
@@ -94,7 +101,7 @@ public class ParkingGarage {
 			System.out.println("You should provide the ticket generated at the entrance for exiting the garage");
 			System.out.println("Please provide the ticket reference number");
 		    int ticketReferenceNumber= Integer.parseInt(in.readLine());
-		    System.out.println("Please provide the liscence number of the vehicle parked");
+		    System.out.println("Please provide the number of the vehicle parked");
 		    String liscenceNumber= in.readLine();
 		    Ticket submittedTicket= garage.validateTicketForExitingGarage(ticketReferenceNumber, liscenceNumber);
 		    System.out.println(String.format("%.2f", submittedTicket.getTotalParkingFee()) + " $ is the total amount to be paid for parking");
@@ -181,6 +188,7 @@ public class ParkingGarage {
 				else
 					break;
 				}
+				while (true) {
 				System.out.println("Please select the report to be generated");
 				System.out.println("1. Hourly Report Generation");
 				System.out.println("2. Daily Report Generation");
@@ -189,16 +197,18 @@ public class ParkingGarage {
 				System.out.println("5. Find the busiest hour of an average day of a month");
 				System.out.println("6. Exit from the Administartor options");
 				int choice=Integer.parseInt( in.readLine());
+				AdminLoop:
+					while(true){
 				if(choice==1)
 				{
 					System.out.println("Please provide the starting hour in the form of 'dd-M-yyyy HH:mm:ss'  such as '31-08-1982 13:20:56'");
 					String str= in.readLine();
-					System.out.println("read line1");
+					
 					SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy HH:mm:ss");
 					Date date= sdf.parse(str);
 					Calendar start= Calendar.getInstance();
 					start.setTime(date);
-					System.out.println("smple");
+			
 					Set<Ticket> reportTickets = garage.generateReport("hourly", start);
 					System.out.println("Number of cars during the time : " + reportTickets.size());
 					System.out.println("The name of customers and their vehicle numbers are as follows");
@@ -278,19 +288,25 @@ public class ParkingGarage {
 				else if(choice==6)
 				{
 					System.out.println("Thank you");
+					break Inner;
 					
 				}
 				else
 					{
 					System.out.println("Invalid choice");
+					
 					}
-				
-				
+			
+			
+			break AdminLoop;
+			
+			}
 				}
-			
-			break Inner;
-			
+				
 		}
+			break Inner;
+		}
+		
 			
 		case 4:
 		{
