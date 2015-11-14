@@ -81,7 +81,7 @@ public class GarageTest {
 			garage.validateTicketForExitingGarage(ticketNum, "aa");
 			fail("should throw an exception");
 			}
-			catch(ExitKiosk.CustomException e)
+			catch(Register.CustomException e)
 			{
 				assertEquals(e.getMessage(), "The ticket does not match with the parked vehicle. Ticket is fake");
 			}

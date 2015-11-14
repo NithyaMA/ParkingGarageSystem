@@ -302,7 +302,7 @@ public class ParkingGarage {
 					System.out.println("Please enter the ticket reference number");
 					Integer ticketNum= Integer.parseInt(in.readLine());
 					Float loanAmount= garage.lendMoneyToCashlessCustomerToExitGarage(ticketNum);
-					System.out.println("You are authorized to lend " + loanAmount + " dollars to the customer for help");
+					System.out.println("You are authorized to lend " + String.format("%.2f",loanAmount) + " dollars to the customer for help");
 					
 				}
 				else if(choice==8)
