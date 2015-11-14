@@ -39,7 +39,8 @@ public class ParkingGarage {
 		System.out.println("1. Enter Garage");
 		System.out.println("2. Exit Garage");
 		System.out.println("3. Generate Reports(only for authorized pesons)"); 
-		System.out.println("4. Exit Menu");
+		System.out.println("4. Stuck in Garage. Need help");
+		System.out.println("5. Exit Menu");
 	
 		Inner:
 		while(true){
@@ -77,7 +78,7 @@ public class ParkingGarage {
 			System.out.println("Thank You, Have a great parking!!!");
 			System.out.println("***********************************");
 			System.out.println("Entry gate is opened, Please park your vehicle in the assigned parking number");
-			if(entryKiosk.isEntryGate())
+			if(garage.getEntryKiosk().isEntryGate())
 				System.out.println("ENTRY GATE IS OPENED");
 			try{
 			Thread.sleep(3000);
@@ -87,7 +88,7 @@ public class ParkingGarage {
 			{
 				ie.printStackTrace();
 			}
-			if(! entryKiosk.isEntryGate())
+			if(!garage.getEntryKiosk().isEntryGate())
 					System.out.println("ENTRY GATE IS CLOSED");
 			}
 			break Inner;
@@ -132,7 +133,7 @@ public class ParkingGarage {
 			System.out.println("The transaction is successfull. Exit gate will be opened");
 			
 			}
-			if(exitKiosk.isExitGate())
+			if(garage.getExitKiosk().isExitGate())
 				System.out.println("EXIT GATE IS OPENED");
 			try{
 			Thread.sleep(3000);
@@ -142,7 +143,7 @@ public class ParkingGarage {
 			{
 				ie.printStackTrace();
 			}
-			if(! exitKiosk.isExitGate())
+			if(! garage.getExitKiosk().isExitGate())
 					System.out.println("EXIT GATE IS CLOSED");
 			
 			break Inner;
@@ -195,7 +196,9 @@ public class ParkingGarage {
 				System.out.println("3. Weekly Report Generation");
 				System.out.println("4. Monthly Report Generation");
 				System.out.println("5. Find the busiest hour of an average day of a month");
-				System.out.println("6. Exit from the Administartor options");
+				System.out.println("6. Reprint ticket to release customer who lost the ticket");
+				System.out.println("7. Lend money to help customer who can't pay");
+				System.out.println("8. Exit from the Administartor options");
 				int choice=Integer.parseInt( in.readLine());
 				AdminLoop:
 					while(true){
@@ -287,6 +290,23 @@ public class ParkingGarage {
 				}
 				else if(choice==6)
 				{
+					System.out.println("Please enter the vehicle number of the customer you wish to release from garage");
+					String str= in.readLine();
+					Ticket t=garage.helpCustomerToReprintTicket(str);
+					System.out.println("Customer's ticket reference number is " + t.getTicketReferenceNumber());
+					System.out.println("Customer can exit the garage now by selecting the exit option");
+					
+				}
+				else if(choice==7)
+				{
+					System.out.println("Please enter the ticket reference number");
+					Integer ticketNum= Integer.parseInt(in.readLine());
+					Float loanAmount= garage.lendMoneyToCashlessCustomerToExitGarage(ticketNum);
+					System.out.println("You are authorized to lend " + loanAmount + " dollars to the customer for help");
+					
+				}
+				else if(choice==8)
+				{
 					System.out.println("Thank you");
 					break Inner;
 					
@@ -307,8 +327,20 @@ public class ParkingGarage {
 			break Inner;
 		}
 		
-			
 		case 4:
+		{
+			System.out.println("Enter 1 if you have lost the ticket");
+			System.out.println("Enter 2 if you dont have cash to pay");
+			Integer c= Integer.parseInt(in.readLine());
+			if(c==1)
+				System.out.println("Don't worry. Admiistartor can reprint the ticket. Please be careful the next time");
+			else if(c==2)
+				System.out.println("Don't worry. Administartor can lend you the parking fee. Please return back the money in one week");
+			else
+				System.out.println("Invalid choice");
+			break Inner;
+		}
+		case 5:
 		{
 			
 			System.out.println("Garage status " + garage.getGarageStatus());

@@ -53,7 +53,7 @@ public class Register {
 			
 			if(ticket.getTicketStatus().equals(TicketStatus.pending))
 			{
-				if( (entry.getTime().before(start.getTime())) )
+				if( (entry.getTime().before(stop.getTime())) )
 					
 					reportTickets.add(ticket);
 			}

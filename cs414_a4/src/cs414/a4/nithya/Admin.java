@@ -8,7 +8,9 @@ public class Admin {
 
 	private String userName;
 	private String password;
-	Register register;
+	private Register register;
+	private ExitKiosk exitKiosk;
+	
 	
 	public Admin(String userName, String password, Register register)
 	{
@@ -52,6 +54,37 @@ public class Admin {
 		}
 	
 }
+	
+	public Ticket helpCustomerToRePrintTicket(String vehicleNumber)
+	{
+		Ticket rePrintedTicket= null;
+		for(Ticket t: this.register.getTickets())
+		{
+			if(t.getCustomer().getvehicleNumber().equals(vehicleNumber))
+			{
+				rePrintedTicket= t;
+				break;
+			}
+		}
+		return rePrintedTicket;
+	
+	}
+	
+	public float lendMoneyToCashlessCustomerToExitGarage(Integer ticketRefNum)
+	{
+		float loanAmount=(float) 0.0;
+		for(Ticket t: this.register.getTickets())
+		{
+			if(t.getTicketReferenceNumber()==ticketRefNum)
+				
+			{
+				loanAmount=t.getTotalParkingFee();
+				
+			}
+			
+		}
+		return loanAmount;
+	}
 	public class CustomException extends RuntimeException
 	{
 		

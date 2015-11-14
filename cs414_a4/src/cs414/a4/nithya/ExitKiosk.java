@@ -28,7 +28,7 @@ public class ExitKiosk {
 				flag=true;
 				if(ticket.getCustomer().getvehicleNumber().equals(vehicleNumber))
 				{
-					 Calendar cal = Calendar.getInstance();
+					Calendar cal = Calendar.getInstance();
 					ticket.setTimeOfExit(cal);
 					ticket.calculateTotalParkingFee();
 					submittedTicket=ticket;
@@ -39,12 +39,9 @@ public class ExitKiosk {
 					throw new CustomException("The ticket does not match with the parked vehicle. Ticket is fake");
 				
 			}
-			if(flag==false)
-				
-				throw new CustomException("The ticket reference number does not exist. Ticket is fake");
-		
-	  
 		}
+		if(flag==false)
+			throw new CustomException("The ticket reference number does not exist. Ticket is fake");
 		if (register.getTickets().isEmpty())
 			throw new CustomException("There are no vehicles parked inside the garage. Sorry, you have come to the wrong garage.");
 		return submittedTicket;

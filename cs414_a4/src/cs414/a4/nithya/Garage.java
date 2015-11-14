@@ -49,15 +49,15 @@ public class Garage {
 			{ 
 				assignedParkingLot= key;
 				parkingLots.put(key, "full");
-				totalOccupiedSpaces+=1;
-				totalUnoccupiedSpaces-=1;
-				updateStatus();
 				break;	
 			}
 			
 		}
 		
 		Ticket generatedTicket= this.entryKiosk.generateTicketandOpenGate(customer, assignedParkingLot);
+		totalOccupiedSpaces+=1;
+		totalUnoccupiedSpaces-=1;
+		updateStatus();
 		
 		return generatedTicket;
 		}
@@ -83,6 +83,7 @@ public class Garage {
 		ticket.setTicketStatus(TicketStatus.paid);
 		totalOccupiedSpaces-=1;
 		totalUnoccupiedSpaces+=1;
+		parkingLots.put(ticket.getAssignedParkingLot(),"empty");
 		updateStatus();
 		exitKiosk.openExitGate();
 		return balanceDue;
@@ -96,6 +97,7 @@ public class Garage {
 			ticket.setTicketStatus(TicketStatus.paid);
 			totalOccupiedSpaces-=1;
 			totalUnoccupiedSpaces+=1;
+			parkingLots.put(ticket.getAssignedParkingLot(),"empty");
 			updateStatus();
 			exitKiosk.openExitGate();
 			return true;
@@ -162,6 +164,16 @@ public class Garage {
 		}
 	}
 
+	
+	public Ticket helpCustomerToReprintTicket(String vehicleNumber)
+	{
+		return admin.helpCustomerToRePrintTicket(vehicleNumber);
+	}
+	
+	public float lendMoneyToCashlessCustomerToExitGarage(Integer ticketRefNum)
+	{
+		return admin.lendMoneyToCashlessCustomerToExitGarage(ticketRefNum);
+	}
 	public String getName() {
 		return name;
 	}
@@ -173,5 +185,11 @@ public class Garage {
 	}
 	public int getTotalUnoccupiedSpaces() {
 		return totalUnoccupiedSpaces;
+	}
+	public EntryKiosk getEntryKiosk() {
+		return entryKiosk;
+	}
+	public ExitKiosk getExitKiosk() {
+		return exitKiosk;
 	}
 }
